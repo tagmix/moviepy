@@ -2,7 +2,6 @@
 This module deals with making images (np arrays). It provides drawing
 methods that are difficult to do with the existing Python libraries.
 """
-
 import numpy as np
 
 
