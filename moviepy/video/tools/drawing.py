@@ -3,6 +3,12 @@ This module deals with making images (np arrays). It provides drawing
 methods that are difficult to do with the existing Python libraries.
 """
 import numpy as np
+from numba import vectorize, uint8, float64
+
+
+@vectorize([float64(float64, uint8, float64)], target='parallel')
+def blit_fast_vectorized(im1, im2, mask):
+    return 1.0 * mask * im1 + (1.0 - mask) * im2
 
 
 def blit(im1, im2, pos=None, mask=None, ismask=False):
@@ -16,7 +22,8 @@ def blit(im1, im2, pos=None, mask=None, ismask=False):
     # DS Experimental speedup, assumes POS is [0,0] and im1 and im2 are the same shape
     if mask is not None and not ismask:
         mask = np.dstack(3 * [mask])
-        return 1.0 * mask * im1 + (1.0 - mask) * im2
+        return blit_fast_vectorized(im1, im2, mask)
+        #   return 1.0 * mask * im1 + (1.0 - mask) * im2
     elif not ismask:
         return im1
 
