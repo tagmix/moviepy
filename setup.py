@@ -68,8 +68,9 @@ requires = [
     'numpy',
     'requests>=2.8.1,<3.0',
     'proglog<=1.0.0',
-    'numba>=0.42.1',
-    'imageio-ffmpeg'
+    'numba==0.42.0',
+    'imageio-ffmpeg',
+    'llvmlite>=0.27.0'
     ]
 
 optional_reqs = [
