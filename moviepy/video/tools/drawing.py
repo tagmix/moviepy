@@ -11,7 +11,7 @@ def blit_fast(im1, im2, mask):
     return blit_fast_vectorized(im1, im2, mask)
 
 
-@vectorize([float64(float64, float64, float64)], target='cpu')
+@vectorize([float64(float64, float64, float64)], target='parallel')
 def blit_fast_vectorized(im1, im2, mask):
     return (mask * im1) + ((1.0 - mask) * im2)
 
