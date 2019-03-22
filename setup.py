@@ -70,7 +70,7 @@ requires = [
     'proglog<=1.0.0',
     'numba==0.42.0',
     'imageio-ffmpeg',
-    'llvmlite==0.27.0'
+    'llvmlite'
     ]
 
 optional_reqs = [
