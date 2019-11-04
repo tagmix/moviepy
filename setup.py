@@ -69,10 +69,7 @@ requires = [
     'tqdm>=4.11.2,<5.0',
     'numpy',
     'requests>=2.8.1,<3.0',
-    'proglog<=1.0.0',
-    'numba==0.42.0',
-    'imageio-ffmpeg',
-    'llvmlite'
+    'proglog<=1.0.0'
     ]
 
 optional_reqs = [
