@@ -90,5 +90,6 @@ class AudioFileClip(AudioClip):
             self.reader.close_proc()
             self.reader = None
 
-    def __del__(self):
-        self.close()
+    # https://github.com/Zulko/moviepy/issues/938
+    # def __del__(self):
+    #     self.close()
